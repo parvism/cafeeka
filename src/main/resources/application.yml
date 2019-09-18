@@ -1,0 +1,8 @@
+
+
+#Datasource configuration for 'dev-in_memory' profile (in memory database H2)
+spring:
+  profiles: dev_in_memory
+  jpa:
+    hibernate:
+      ddl-auto: none
