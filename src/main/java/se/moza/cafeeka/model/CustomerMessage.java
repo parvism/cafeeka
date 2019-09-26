@@ -62,12 +62,12 @@ public class CustomerMessage extends DateAudit {
 
     @Override
     public String toString() {
-        return "CustomerMessage{" +
-                "name='" + name + '\'' +
-                ", email='" + email + '\'' +
-                ", phone='" + phone + '\'' +
-                ", subject='" + subject + '\'' +
-                ", message='" + message + '\'' +
-                '}';
+        return '\n' +
+                "CustomerMessage:" + '\n' +
+                " name: " + name + '\n' +
+                " email: " + email + '\n' +
+                " phone: " + phone + '\n' +
+                " subject: " + subject + '\n' +
+                " message: " + message + '\n';
     }
 }

@@ -1,8 +1,42 @@
-
-
 #Datasource configuration for 'dev-in_memory' profile (in memory database H2)
 spring:
   profiles: dev_in_memory
   jpa:
     hibernate:
       ddl-auto: none
+
+---
+#Datasource configuration for 'development' profile
+spring:
+  profiles: development
+  jpa:
+    hibernate:
+      ddl-auto: none
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/cafeeka_db
+    username: postgres
+    password: postgres
+
+---
+#Datasource configuration for 'test' profile    ....using this db
+spring:
+  profiles: test
+  datasource:
+    url: jdbc:postgresql://localhost:5432/cafeeka_db
+    username: cafeeka_user
+    password: cafeeka_password
+
+---
+#Datasource configuration for 'production' profile
+spring:
+  profiles: production
+  datasource:
+    url: jdbc:postgresql://localhost:5432/cafeeka_db
+    username: cafeeka_user
+    password: cafeeka_password
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+

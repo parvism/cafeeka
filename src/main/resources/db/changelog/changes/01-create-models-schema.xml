@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext
+           http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd
+           http://www.liquibase.org/xml/ns/dbchangelog
+           http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+
+    <changeSet author="Parviz" id="101">
+        <createTable tableName="menu">
+            <column name="id" autoIncrement="true" type="BIGINT">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="menu_type" type="INT"/>
+            <column name="name" type="VARCHAR(255)"/>
+            <column name="title" type="VARCHAR(255)"/>
+            <column name="description" type="VARCHAR(255)"/>
+            <column name="ingredients" type="VARCHAR(255)"/>
+            <column name="vego" type="boolean"/>
+            <column name="glutenfree" type="boolean"/>
+            <column name="higher_price" type="FLOAT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="lower_price" type="FLOAT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_at" type="datetime(6)"/>
+            <column name="updated_at" type="datetime(6)"/>
+            <column name="photo_url" type="VARCHAR(255)"/>
+            <column name="photo" type="LONGBLOB"/>
+            <column name="expired" type="boolean" defaultValueBoolean="false"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="Parviz" id="102">
+        <createTable tableName="drink">
+            <column name="id" autoIncrement="true" type="BIGINT">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="name" type="VARCHAR(255)"/>
+            <column name="description" type="VARCHAR(255)"/>
+            <column name="alcoholic" type="boolean"/>
+            <column name="price" type="FLOAT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_at" type="datetime(6)"/>
+            <column name="updated_at" type="datetime(6)"/>
+            <column name="photo_url" type="VARCHAR(255)"/>
+            <column name="photo" type="LONGBLOB"/>
+            <column name="expired" type="boolean" defaultValueBoolean="false"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="Parviz" id="103">
+        <createTable tableName="customer_order">
+            <column name="id" autoIncrement="true" type="BIGINT">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="customer_name" type="VARCHAR(255)"/>
+            <column name="customer_mobile_phone" type="VARCHAR(255)"/>
+            <column name="customer_email" type="VARCHAR(255)"/>
+            <column name="created_at" type="datetime(6)"/>
+            <column name="updated_at" type="datetime(6)"/>
+            <column name="payment_method" type="INT"/>
+            <column name="payment_status" type="INT"/>
+            <column name="extra_info" type="VARCHAR(255)"/>
+            <column name="menu_with_lower_price" type="boolean"/>
+            <column name="charge_id" type="VARCHAR(255)"/>
+            <column name="balance_transaction_id" type="VARCHAR(255)"/>
+            <column name="total_price" type="FLOAT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="ready" type="boolean" defaultValueBoolean="false"/>
+            <column name="pickedup" type="boolean" defaultValueBoolean="false"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="Parviz" id="104">
+        <createTable tableName="menu_order">
+            <column name="id" autoIncrement="true" type="BIGINT">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="customer_order_fk" type="BIGINT"/>
+            <column name="menu_fk" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="Parviz" id="105">
+        <createTable tableName="drink_order">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="customer_order_fk" type="BIGINT"/>
+            <column name="drink_fk" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="Parviz" id="106">
+        <createIndex indexName="FKnqadvftv18n1k2wthjqmhxtdq" tableName="menu_order">
+            <column name="menu_fk"/>
+        </createIndex>
+    </changeSet>
+
+    <changeSet author="Parviz" id="107">
+        <createIndex indexName="FKrchuuxl0svb1cqqvfdrqwubla" tableName="drink_order">
+            <column name="customer_order_fk"/>
+        </createIndex>
+    </changeSet>
+
+    <changeSet author="Parviz" id="108">
+        <createIndex indexName="FKris314n584k7oixh8aftgta1" tableName="menu_order">
+            <column name="customer_order_fk"/>
+        </createIndex>
+    </changeSet>
+
+    <changeSet author="Parviz" id="109">
+        <createIndex indexName="FKtduguf6aexvu0tjhbq8a58sre" tableName="drink_order">
+            <column name="drink_fk"/>
+        </createIndex>
+    </changeSet>
+
+    <changeSet author="Parviz" id="110">
+        <addForeignKeyConstraint baseColumnNames="menu_fk" baseTableName="menu_order" constraintName="FKnqadvftv18n1k2wthjqmhxtdq" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="menu"/>
+    </changeSet>
+
+    <changeSet author="Parviz" id="111">
+        <addForeignKeyConstraint baseColumnNames="customer_order_fk" baseTableName="menu_order" constraintName="FKris314n584k7oixh8aftgta1" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="customer_order"/>
+    </changeSet>
+
+    <changeSet author="Parviz" id="112">
+        <addForeignKeyConstraint baseColumnNames="drink_fk" baseTableName="drink_order" constraintName="FKtduguf6aexvu0tjhbq8a58sre" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="drink"/>
+    </changeSet>
+
+    <changeSet author="Parviz" id="113">
+        <addForeignKeyConstraint baseColumnNames="customer_order_fk" baseTableName="drink_order" constraintName="FKrchuuxl0svb1cqqvfdrqwubla" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="customer_order"/>
+    </changeSet>
+
+
+    <changeSet author="Parviz" id="114">
+        <createTable tableName="role">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="name" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="Parviz" id="115">
+        <createTable tableName="user">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="created_at" type="datetime(6)"/>
+            <column name="updated_at" type="datetime(6)"/>
+            <column name="name" type="VARCHAR(40)"/>
+            <column name="username" type="VARCHAR(15)"/>
+            <column name="email" type="VARCHAR(40)"/>
+            <column name="password" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="Parviz" id="116">
+        <createTable tableName="user_role">
+            <column name="user_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="role_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="Parviz" id="117">
+        <addUniqueConstraint columnNames="name" constraintName="UK_epk9im9l9q67xmwi4hbed25do" tableName="role"/>
+    </changeSet>
+
+    <changeSet author="Parviz" id="118">
+        <addUniqueConstraint columnNames="username" constraintName="UKsb8bbouer5wak8vyiiy4pf2bx" tableName="user"/>
+    </changeSet>
+
+    <changeSet author="Parviz" id="119">
+        <addUniqueConstraint columnNames="email" constraintName="UKob8kqyqqgmefl0aco34akdtpe" tableName="user"/>
+    </changeSet>
+
+    <changeSet author="Parviz" id="120">
+        <addPrimaryKey columnNames="user_id, role_id" constraintName="PRIMARY" tableName="user_role"/>
+    </changeSet>
+
+    <changeSet author="Parviz" id="121">
+        <createIndex indexName="FKa68196081fvovjhkek5m97n3y" tableName="user_role">
+            <column name="role_id"/>
+        </createIndex>
+    </changeSet>
+
+    <changeSet author="Parviz" id="122">
+        <addForeignKeyConstraint baseColumnNames="user_id" baseTableName="user_role" constraintName="FK859n2jvi8ivhui0rl0esws6o" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="user"/>
+    </changeSet>
+    <changeSet author="Parviz" id="123">
+        <addForeignKeyConstraint baseColumnNames="role_id" baseTableName="user_role" constraintName="FKa68196081fvovjhkek5m97n3y" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="role"/>
+    </changeSet>
+
+
+
+</databaseChangeLog>

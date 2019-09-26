@@ -1,0 +1,344 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <property name="now" value="sysdate" dbms="oracle"/>
+    <property name="now" value="now()" dbms="mysql"/>
+    <property name="now" value="now()" dbms="postgresql"/>
+    <property name="now" value="CURRENT_TIMESTAMP()" dbms="h2"/>
+
+
+
+    <changeSet author="Parviz" id="201">
+        <insert tableName="menu">
+            <column name="menu_type" value="1"/>
+            <column name="vego" valueBoolean="false"/>			<!-- IMPORTANT depending on database impl, this can be value or  valueBoolean -->
+            <column name="glutenfree" valueBoolean="false"/>
+            <column name="name" value="POKE BOWL"/>
+            <column name="title" value="Hawaiian Surfer Food"/>
+            <column name="description" value="Marinerad färsk sashimilax, svart eko ris, picklade grönsaker,koriander, ingefära sojabönor, Soya och chipotle ancho mayo on the side"/>
+            <column name="ingredients" value="some ingrediens ..."/>
+            <column name="lower_price" value="95"/>
+            <column name="higher_price" value="125"/>
+            <column name="created_at" valueDate="${now}"/>
+            <column name="updated_at" valueDate="${now}"/>
+            <!--       	<column name="created_at" valueDate="2017-12-12"/>		-->
+            <!--       	<column name="updated_at" valueDate="2017-12-12"/>		-->
+            <column name="photo" valueBlobFile="/photos/PokeBowl.jpg"/>
+            <column name="photo_url" value="http://localhost:8080/api/menus/photos/1"/>
+            <column name="expired" valueBoolean="false"/>
+        </insert>
+        <insert tableName="menu">
+            <column name="menu_type" value="1"/>
+            <column name="vego" valueBoolean="false"/>
+            <column name="glutenfree" valueBoolean="false"/>
+            <column name="name" value="RAMEN BOWL"/>
+            <column name="title" value="Japanese Noodle Soup"/>
+            <column name="description" value="Med Asiatiska köttbolla, färska örter, ägg och vårlök"/>
+            <column name="ingredients" value="some ingrediens ..."/>
+            <column name="lower_price" value="99"/>
+            <column name="higher_price" value="129"/>
+            <column name="created_at" valueDate="${now}"/>
+            <column name="updated_at" valueDate="${now}"/>
+            <!--       	<column name="created_at" valueDate="2017-12-12"/>		-->
+            <!--       	<column name="updated_at" valueDate="2017-12-12"/>		-->
+            <column name="photo" valueBlobFile="/photos/RamenBowl.jpg"/>
+            <column name="photo_url" value="http://localhost:8080/api/menus/photos/2"/>
+            <column name="expired" valueBoolean="false"/>
+        </insert>
+        <insert tableName="menu">
+            <column name="menu_type" value="1"/>
+            <column name="vego" valueBoolean="false"/>
+            <column name="glutenfree" valueBoolean="false"/>
+            <column name="name" value="SPICY SHRIMP BURGER"/>
+            <column name="title" value=""/>
+            <column name="description" value="Nybakat Franskt Briochebröd. Krämig kimchi röra, med handskalade Msc märkta räkor, gurksallad, färsk koriander. Serveras med melonsallad"/>
+            <column name="ingredients" value="some ingrediens ..."/>
+            <column name="lower_price" value="99"/>
+            <column name="higher_price" value="139"/>
+            <column name="created_at" valueDate="${now}"/>
+            <column name="updated_at" valueDate="${now}"/>
+            <!--       	<column name="created_at" valueDate="2017-12-12"/>		-->
+            <!--       	<column name="updated_at" valueDate="2017-12-12"/>		-->
+            <column name="photo" valueBlobFile="/photos/spicyShrimpBurger.jpeg"/>
+            <column name="photo_url" value="http://localhost:8080/api/menus/photos/3"/>
+            <column name="expired" valueBoolean="false"/>
+        </insert>
+        <insert tableName="menu">
+            <column name="menu_type" value="1"/>
+            <column name="vego" valueBoolean="false"/>
+            <column name="glutenfree" valueBoolean="false"/>
+            <column name="name" value="BBQ HALLOUMI BURGER"/>
+            <column name="title" value=""/>
+            <column name="description" value="Nybakat Franskt Briochebröd, Bbq galzed halloumi, chipotle mayo fräsch coleslaw, en skiva roman sallad. Ink side of the day"/>
+            <column name="ingredients" value="some ingrediens ..."/>
+            <column name="lower_price" value="95"/>
+            <column name="higher_price" value="125"/>
+            <column name="created_at" valueDate="${now}"/>
+            <column name="updated_at" valueDate="${now}"/>
+            <!--       	<column name="created_at" valueDate="2017-12-12"/>		-->
+            <!--       	<column name="updated_at" valueDate="2017-12-12"/>		-->
+            <column name="photo" valueBlobFile="/photos/BBQHalloumiBurger.jpg"/>
+            <column name="photo_url" value="http://localhost:8080/api/menus/photos/4"/>
+            <column name="expired" valueBoolean="false"/>
+        </insert>
+        <insert tableName="menu">
+            <column name="menu_type" value="1"/>
+            <column name="vego" valueBoolean="false"/>
+            <column name="glutenfree" valueBoolean="false"/>
+            <column name="name" value="CHICKEN BURGER"/>
+            <column name="title" value=""/>
+            <column name="description" value="Description ENybakat Franskt Briochebröd. Ugnsbakad Bbq glazed kyckling, chipotle mayo, fräsch coleslaw, en skiva roman sallad. Ink side of the day"/>
+            <column name="ingredients" value="some ingrediens ..."/>
+            <column name="lower_price" value="99"/>
+            <column name="higher_price" value="129"/>
+            <column name="created_at" valueDate="${now}"/>
+            <column name="updated_at" valueDate="${now}"/>
+            <!--       	<column name="created_at" valueDate="2017-12-12"/>		-->
+            <!--       	<column name="updated_at" valueDate="2017-12-12"/>		-->
+            <column name="photo" valueBlobFile="/photos/chickenBurger.jpg"/>
+            <column name="photo_url" value="http://localhost:8080/api/menus/photos/5"/>
+            <column name="expired" valueBoolean="false"/>
+        </insert>
+        <insert tableName="menu">
+            <column name="menu_type" value="1"/>
+            <column name="vego" valueBoolean="false"/>
+            <column name="glutenfree" valueBoolean="false"/>
+            <column name="name" value="BOMBAY BOWL"/>
+            <column name="title" value="Indisk Street Food"/>
+            <column name="description" value="Vegan chickpea curry, svart eko ris, färsk spenat, mango chutney, gurksallad, koriander"/>
+            <column name="ingredients" value="some ingrediens ..."/>
+            <column name="lower_price" value="79"/>
+            <column name="higher_price" value="99"/>
+            <column name="created_at" valueDate="${now}"/>
+            <column name="updated_at" valueDate="${now}"/>
+            <!--       	<column name="created_at" valueDate="2017-12-12"/>		-->
+            <!--       	<column name="updated_at" valueDate="2017-12-12"/>		-->
+            <column name="photo" valueBlobFile="/photos/BombayBowl.jpg"/>
+            <column name="photo_url" value="http://localhost:8080/api/menus/photos/6"/>
+            <column name="expired" valueBoolean="false"/>
+        </insert>
+        <insert tableName="menu">
+            <column name="menu_type" value="0"/>
+            <column name="vego" valueBoolean="false"/>
+            <column name="glutenfree" valueBoolean="false"/>
+            <column name="name" value="Breakfast"/>
+            <column name="title" value="Breakfast of cafe"/>
+            <column name="description" value="Some Description about the breakfast"/>
+            <column name="ingredients" value="some ingrediens ..."/>
+            <column name="lower_price" value="45"/>
+            <column name="higher_price" value="65"/>
+            <column name="created_at" valueDate="${now}"/>
+            <column name="updated_at" valueDate="${now}"/>
+            <!--       	<column name="created_at" valueDate="2017-12-12"/>		-->
+            <!--       	<column name="updated_at" valueDate="2017-12-12"/>		-->
+            <column name="photo" valueBlobFile="/photos/breakfast.jpg"/>
+            <column name="photo_url" value="http://localhost:8080/api/menus/photos/7"/>
+            <column name="expired" valueBoolean="false"/>
+        </insert>
+    </changeSet>
+
+    <changeSet author="Parviz" id="202">
+        <insert tableName="drink">
+            <column name="name" value="Ramlösa"/>
+            <column name="description" value="some descr about Ramlösa"/>
+            <column name="price" value="20"/>
+            <column name="alcoholic" valueBoolean="false"/>
+            <column name="created_at" valueDate="${now}"/>
+            <column name="updated_at" valueDate="${now}"/>
+            <!--       	<column name="created_at" valueDate="2017-12-12"/>		-->
+            <!--       	<column name="updated_at" valueDate="2017-12-12"/>		-->
+            <column name="photo" valueBlobFile="/photos/ramlosa.jpg"/>
+            <column name="photo_url" value="http://localhost:8080/api/drinks/photos/1"/>
+            <column name="expired" valueBoolean="false"/>
+        </insert>
+        <insert tableName="drink">
+            <column name="name" value="Loka"/>
+            <column name="description" value="some descr about Loka"/>
+            <column name="price" value="20"/>
+            <column name="alcoholic" valueBoolean="false"/>
+            <column name="created_at" valueDate="${now}"/>
+            <column name="updated_at" valueDate="${now}"/>
+            <!--       	<column name="created_at" valueDate="2017-12-12"/>		-->
+            <!--       	<column name="updated_at" valueDate="2017-12-12"/>		-->
+            <column name="photo" valueBlobFile="/photos/loka.jpg"/>
+            <column name="photo_url" value="http://localhost:8080/api/drinks/photos/2"/>
+            <column name="expired" valueBoolean="false"/>
+        </insert>
+        <insert tableName="drink">
+            <column name="name" value="Cola"/>
+            <column name="description" value="some descr about Cola"/>
+            <column name="price" value="20"/>
+            <column name="alcoholic" valueBoolean="false"/>
+            <column name="created_at" valueDate="${now}"/>
+            <column name="updated_at" valueDate="${now}"/>
+            <!--       	<column name="created_at" valueDate="2017-12-12"/>		-->
+            <!--       	<column name="updated_at" valueDate="2017-12-12"/>		-->
+            <column name="photo" valueBlobFile="/photos/cola.jpg"/>
+            <column name="photo_url" value="http://localhost:8080/api/drinks/photos/3"/>
+            <column name="expired" valueBoolean="false"/>
+        </insert>
+        <insert tableName="drink">
+            <column name="name" value="Pepsi"/>
+            <column name="description" value="some descr about Pepsi"/>
+            <column name="price" value="20"/>
+            <column name="alcoholic" valueBoolean="false"/>
+            <column name="created_at" valueDate="${now}"/>
+            <column name="updated_at" valueDate="${now}"/>
+            <!--       	<column name="created_at" valueDate="2017-12-12"/>		-->
+            <!--       	<column name="updated_at" valueDate="2017-12-12"/>		-->
+            <column name="photo" valueBlobFile="/photos/pepsi.jpg"/>
+            <column name="photo_url" value="http://localhost:8080/api/drinks/photos/4"/>
+            <column name="expired" valueBoolean="false"/>
+        </insert>
+        <insert tableName="drink">
+            <column name="name" value="Fanta"/>
+            <column name="description" value="some descr about Fanta"/>
+            <column name="price" value="20"/>
+            <column name="alcoholic" valueBoolean="false"/>
+            <column name="created_at" valueDate="${now}"/>
+            <column name="updated_at" valueDate="${now}"/>
+            <!--       	<column name="created_at" valueDate="2017-12-12"/>		-->
+            <!--       	<column name="updated_at" valueDate="2017-12-12"/>		-->
+            <column name="photo" valueBlobFile="/photos/fanta.jpg"/>
+            <column name="photo_url" value="http://localhost:8080/api/drinks/photos/5"/>
+            <column name="expired" valueBoolean="false"/>
+        </insert>
+        <insert tableName="drink">
+            <column name="name" value="Zingo"/>
+            <column name="description" value="some descr about Zingo"/>
+            <column name="price" value="20"/>
+            <column name="alcoholic" valueBoolean="false"/>
+            <column name="created_at" valueDate="${now}"/>
+            <column name="updated_at" valueDate="${now}"/>
+            <!--       	<column name="created_at" valueDate="2017-12-12"/>		-->
+            <!--       	<column name="updated_at" valueDate="2017-12-12"/>		-->
+            <column name="photo" valueBlobFile="/photos/zingo.jpg"/>
+            <column name="photo_url" value="http://localhost:8080/api/drinks/photos/6"/>
+            <column name="expired" valueBoolean="false"/>
+        </insert>
+        <insert tableName="drink">
+            <column name="name" value="Falcon"/>
+            <column name="description" value="some descr about Falcon"/>
+            <column name="price" value="25"/>
+            <column name="alcoholic" valueBoolean="true"/>
+            <column name="created_at" valueDate="${now}"/>
+            <column name="updated_at" valueDate="${now}"/>
+            <!--       	<column name="created_at" valueDate="2017-12-12"/>		-->
+            <!--       	<column name="updated_at" valueDate="2017-12-12"/>		-->
+            <column name="photo" valueBlobFile="/photos/falcon.jpg"/>
+            <column name="photo_url" value="http://localhost:8080/api/drinks/photos/7"/>
+            <column name="expired" valueBoolean="false"/>
+        </insert>
+    </changeSet>
+
+    <changeSet author="Parviz" id="203">
+        <insert tableName="customer_order">
+            <column name="customer_name" value="John Doe"/>
+            <column name="customer_mobile_phone" value="0707123456"/>
+            <column name="customer_email" value="john@examplemail.com"/>
+            <column name="payment_method" value="1"/>
+            <column name="extra_info" value="Some extra info"/>
+            <column name="menu_with_lower_price" valueBoolean="true"/>
+            <column name="created_at" valueDate="${now}"/>
+            <column name="updated_at" valueDate="${now}"/>
+            <column name="payment_status" value="0"/>
+            <column name="charge_id" value="98745632101"/>
+            <column name="balance_transaction_id" value="98745632101"/>
+            <column name="total_price" value="234"/>
+        </insert>
+        <insert tableName="customer_order">
+            <column name="customer_name" value="Jane Doe"/>
+            <column name="customer_mobile_phone" value="0704654321"/>
+            <column name="customer_email" value="jane@mailmail.com"/>
+            <column name="payment_method" value="2"/>
+            <column name="extra_info" value="Some extra info"/>
+            <column name="menu_with_lower_price" valueBoolean="false"/>
+            <column name="created_at" valueDate="${now}"/>
+            <column name="updated_at" valueDate="${now}"/>
+            <column name="payment_status" value="1"/>
+            <column name="charge_id" value="98745632101"/>
+            <column name="balance_transaction_id" value="98745632101"/>
+            <column name="total_price" value="304"/>
+        </insert>
+
+        <insert tableName="menu_order">
+            <column name="customer_order_fk" value="1"/>
+            <column name="menu_fk" value="1"/>
+        </insert>
+        <insert tableName="menu_order">
+            <column name="customer_order_fk" value="1"/>
+            <column name="menu_fk" value="2"/>
+        </insert>
+        <insert tableName="menu_order">
+            <column name="customer_order_fk" value="2"/>
+            <column name="menu_fk" value="3"/>
+        </insert>
+        <insert tableName="menu_order">
+            <column name="customer_order_fk" value="2"/>
+            <column name="menu_fk" value="4"/>
+        </insert>
+
+        <insert tableName="drink_order">
+            <column name="customer_order_fk" value="1"/>
+            <column name="drink_fk" value="1"/>
+        </insert>
+        <insert tableName="drink_order">
+            <column name="customer_order_fk" value="1"/>
+            <column name="drink_fk" value="2"/>
+        </insert>
+        <insert tableName="drink_order">
+            <column name="customer_order_fk" value="2"/>
+            <column name="drink_fk" value="3"/>
+        </insert>
+        <insert tableName="drink_order">
+            <column name="customer_order_fk" value="2"/>
+            <column name="drink_fk" value="4"/>
+        </insert>
+    </changeSet>
+
+    <changeSet author="Parviz" id="204">
+        <insert tableName="role">
+            <column name="name" value="ROLE_ADMIN"/>
+        </insert>
+        <insert tableName="role">
+            <column name="name" value="ROLE_USER"/>
+        </insert>
+    </changeSet>
+
+    <changeSet author="Parviz" id="205">
+        <insert tableName="user">
+            <column name="name" value="Parviz Mozaffari"/>
+            <column name="username" value="parviz"/>
+            <column name="email" value="parviz@mozaffari.com"/>
+            <column name="password" value="$2a$10$iHxgribNG//V.nIfDrRxjupO9HP0jXEW6P3J2jWX5XlMuvvENGcYm"/>
+            <column name="created_at" valueDate="${now}"/>
+            <column name="updated_at" valueDate="${now}"/>
+        </insert>
+        <insert tableName="user_role">
+            <column name="user_id" value="1"/>
+            <column name="role_id" value="1"/>
+        </insert>
+        <insert tableName="user_role">
+            <column name="user_id" value="1"/>
+            <column name="role_id" value="2"/>
+        </insert>
+        <insert tableName="user">
+            <column name="name" value="John Doe"/>
+            <column name="username" value="john"/>
+            <column name="email" value="john@doe.com"/>
+            <column name="password" value="$2a$10$9D/HJstsLrem6EWh8LhAPeAcMBTTgftOZiE3d.o0rTVX.copYHwBS"/>
+            <column name="created_at" valueDate="${now}"/>
+            <column name="updated_at" valueDate="${now}"/>
+        </insert>
+        <insert tableName="user_role">
+            <column name="user_id" value="2"/>
+            <column name="role_id" value="2"/>
+        </insert>
+    </changeSet>
+
+</databaseChangeLog>

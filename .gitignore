@@ -1,6 +1,9 @@
 HELP.md
 target/
 lib/
+postgresql_info.txt
+cafeeka_API_info.txt
+
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**
 !**/src/test/**

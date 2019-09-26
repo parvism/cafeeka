@@ -38,7 +38,7 @@ public class User extends DateAudit {
     @NaturalId
     @NotNull
     @Size(max = 40)
-//  @Email
+    @Email
     private String email;
 
     @NotNull
